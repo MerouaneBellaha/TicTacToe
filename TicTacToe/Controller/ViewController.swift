@@ -9,24 +9,26 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     var game = Game()
-
+    
     @IBOutlet var cells: [UIButton]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        game.delegate = self
+        game.errorHandler = { message, restart in
+            self.udpateError(with: message, restart: restart)
+        }
+        game.updateBoardHandler = { board in
+            self.updateCells(with: board)
+        }
     }
-
+    
     @IBAction func cellTapped(_ sender: UIButton) {
         game.play(at: sender.tag)
     }
-}
-
-extension ViewController: GameProtocol {
-
-    func didUpdateBoard(with board: [[String]]) {
+    
+    func updateCells(with board: [[String]]) {
         var index = 0
         for row in board.enumerated() {
             for cell in row.element.enumerated() {
@@ -35,14 +37,15 @@ extension ViewController: GameProtocol {
             }
         }
     }
-
-    func didUpdateAlertMessage(with message: String, restart: Bool) {
+    
+    func udpateError(with message: String, restart: Bool) {
         let alertVc = UIAlertController(title: nil, message: message, preferredStyle: .alert)
         alertVc.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { _ in
             if restart {
                 self.game.restart()
             }
         }))
-        present(alertVc, animated: true)
+        self.present(alertVc, animated: true)
     }
 }
+

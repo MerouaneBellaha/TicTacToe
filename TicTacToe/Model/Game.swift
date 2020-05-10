@@ -8,17 +8,11 @@
 
 import Foundation
 
-protocol GameProtocol: class {
-    func didUpdateBoard(with board: [[String]])
-    func didUpdateAlertMessage(with message: String, restart: Bool)
-}
 
 class Game {
 
     // MARK: - Properties
 
-    var delegate: GameProtocol?
-    
     let players = [Player(.one), Player(.two)]
     var activePlayer: Player {
         tour % 2 == 0 ? players[0] : players[1]
@@ -31,28 +25,33 @@ class Game {
         ["", "", ""],
         ["", "", ""],
         ["", "", ""],
-        ] {
-            didSet {
-                delegate?.didUpdateBoard(with: board)
-            }
+        ]{
+        didSet {
+            updateBoardHandler?(board)
         }
+    }
     var tour = 0
+
+    // MARK: - Completion Handler Pattern
+
+    var errorHandler: ((String, Bool) -> Void)?
+    var updateBoardHandler: (([[String]]) -> Void)?
 
     // MARK: - Methods
 
     func play(at cell: Int) {
         guard board[cell/3][cell%3].isEmpty else {
-            delegate?.didUpdateAlertMessage(with: "Cette case est déjà prise, choisir une autre", restart: false)
+            errorHandler?("PROUT", false)
             return }
         board[cell/3][cell%3] = activePlayer.mark
+        print("ALLO CA MARCHE")
 
         gameHaveAWinner()
         guard winner == nil else {
-            delegate?.didUpdateAlertMessage(with: "Winer is player \(formattedWinner ?? "ERREUR")", restart: true)
-//            restart()
+            errorHandler?("Winn", true)
             return }
         guard tour < 8 else {
-            delegate?.didUpdateAlertMessage(with: "Tie", restart: true)
+            errorHandler?("Tie", true)
             return
         }
         tour += 1
