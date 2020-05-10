@@ -13,7 +13,10 @@
 		CBAE89DC2466F8220021B1F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBAE89DA2466F8220021B1F9 /* Main.storyboard */; };
 		CBAE89DE2466F8230021B1F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBAE89DD2466F8230021B1F9 /* Assets.xcassets */; };
 		CBAE89E12466F8230021B1F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBAE89DF2466F8230021B1F9 /* LaunchScreen.storyboard */; };
-		CBAE89EC2466F8230021B1F9 /* TicTacToeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAE89EB2466F8230021B1F9 /* TicTacToeTests.swift */; };
+		CBAE89EC2466F8230021B1F9 /* GameTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAE89EB2466F8230021B1F9 /* GameTestCase.swift */; };
+		CBAE89FB2466FB4A0021B1F9 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAE89FA2466FB4A0021B1F9 /* Game.swift */; };
+		CBAE89FD246705520021B1F9 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAE89FC246705520021B1F9 /* Player.swift */; };
+		CBAE89FF24670D0D0021B1F9 /* PlayerTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAE89FE24670D0D0021B1F9 /* PlayerTestCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,8 +39,11 @@
 		CBAE89E02466F8230021B1F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CBAE89E22466F8230021B1F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CBAE89E72466F8230021B1F9 /* TicTacToeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TicTacToeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		CBAE89EB2466F8230021B1F9 /* TicTacToeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicTacToeTests.swift; sourceTree = "<group>"; };
+		CBAE89EB2466F8230021B1F9 /* GameTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTestCase.swift; sourceTree = "<group>"; };
 		CBAE89ED2466F8230021B1F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CBAE89FA2466FB4A0021B1F9 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		CBAE89FC246705520021B1F9 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		CBAE89FE24670D0D0021B1F9 /* PlayerTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerTestCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,12 +85,10 @@
 		CBAE89D32466F8220021B1F9 /* TicTacToe */ = {
 			isa = PBXGroup;
 			children = (
-				CBAE89D42466F8220021B1F9 /* AppDelegate.swift */,
-				CBAE89D62466F8220021B1F9 /* SceneDelegate.swift */,
-				CBAE89D82466F8220021B1F9 /* ViewController.swift */,
-				CBAE89DA2466F8220021B1F9 /* Main.storyboard */,
-				CBAE89DD2466F8230021B1F9 /* Assets.xcassets */,
-				CBAE89DF2466F8230021B1F9 /* LaunchScreen.storyboard */,
+				CBAE89F82466F8460021B1F9 /* Model */,
+				CBAE89F72466F8440021B1F9 /* View */,
+				CBAE89F62466F8420021B1F9 /* Controller */,
+				CBAE89F92466F85E0021B1F9 /* SupportingFiles */,
 				CBAE89E22466F8230021B1F9 /* Info.plist */,
 			);
 			path = TicTacToe;
@@ -93,10 +97,47 @@
 		CBAE89EA2466F8230021B1F9 /* TicTacToeTests */ = {
 			isa = PBXGroup;
 			children = (
-				CBAE89EB2466F8230021B1F9 /* TicTacToeTests.swift */,
+				CBAE89EB2466F8230021B1F9 /* GameTestCase.swift */,
 				CBAE89ED2466F8230021B1F9 /* Info.plist */,
+				CBAE89FE24670D0D0021B1F9 /* PlayerTestCase.swift */,
 			);
 			path = TicTacToeTests;
+			sourceTree = "<group>";
+		};
+		CBAE89F62466F8420021B1F9 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CBAE89D82466F8220021B1F9 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		CBAE89F72466F8440021B1F9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CBAE89DA2466F8220021B1F9 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CBAE89F82466F8460021B1F9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CBAE89FA2466FB4A0021B1F9 /* Game.swift */,
+				CBAE89FC246705520021B1F9 /* Player.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CBAE89F92466F85E0021B1F9 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				CBAE89D42466F8220021B1F9 /* AppDelegate.swift */,
+				CBAE89D62466F8220021B1F9 /* SceneDelegate.swift */,
+				CBAE89DD2466F8230021B1F9 /* Assets.xcassets */,
+				CBAE89DF2466F8230021B1F9 /* LaunchScreen.storyboard */,
+			);
+			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -203,6 +244,8 @@
 				CBAE89D92466F8220021B1F9 /* ViewController.swift in Sources */,
 				CBAE89D52466F8220021B1F9 /* AppDelegate.swift in Sources */,
 				CBAE89D72466F8220021B1F9 /* SceneDelegate.swift in Sources */,
+				CBAE89FD246705520021B1F9 /* Player.swift in Sources */,
+				CBAE89FB2466FB4A0021B1F9 /* Game.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,7 +253,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CBAE89EC2466F8230021B1F9 /* TicTacToeTests.swift in Sources */,
+				CBAE89FF24670D0D0021B1F9 /* PlayerTestCase.swift in Sources */,
+				CBAE89EC2466F8230021B1F9 /* GameTestCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
