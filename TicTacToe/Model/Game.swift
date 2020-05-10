@@ -41,17 +41,15 @@ class Game {
 
     func play(at cell: Int) {
         guard board[cell/3][cell%3].isEmpty else {
-            errorHandler?("PROUT", false)
+            errorHandler?("Impossible de jouer ici. Recommencez !", false)
             return }
         board[cell/3][cell%3] = activePlayer.mark
-        print("ALLO CA MARCHE")
-
         gameHaveAWinner()
         guard winner == nil else {
-            errorHandler?("Winn", true)
+            errorHandler?("Winner is \(formattedWinner ?? "") !", true)
             return }
         guard tour < 8 else {
-            errorHandler?("Tie", true)
+            errorHandler?("Tie !", true)
             return
         }
         tour += 1
