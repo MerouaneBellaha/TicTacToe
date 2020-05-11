@@ -15,7 +15,7 @@ struct Player {
         order == .one ? "X" : "O"
     }
 
-    enum playerOrder {
+    enum playerOrder: String {
         case one, two
     }
 

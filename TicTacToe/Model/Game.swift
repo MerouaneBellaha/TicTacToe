@@ -24,9 +24,7 @@ class Game {
         tour % 2 == 0 ? players[0] : players[1]
     }
     var winner: Player?
-    var formattedWinner: String? {
-        winner?.order == .one ? "Player One" : "Player two"
-    }
+    
     var board: [[String]] =  [
         ["", "", ""],
         ["", "", ""],
@@ -48,7 +46,7 @@ class Game {
 
         gameHaveAWinner()
         guard winner == nil else {
-            delegate?.didUpdateAlertMessage(with: "Winer is player \(formattedWinner ?? "ERREUR")", restart: true)
+            delegate?.didUpdateAlertMessage(with: "Winner is Player \(winner?.order.rawValue ?? "Error")", restart: true)
 //            restart()
             return }
         guard tour < 8 else {
