@@ -18,9 +18,7 @@ class Game {
         tour % 2 == 0 ? players[0] : players[1]
     }
     var winner: Player?
-    var formattedWinner: String? {
-        winner?.order == .one ? "Player One" : "Player two"
-    }
+
     var board: [[String]] =  [
         ["", "", ""],
         ["", "", ""],
@@ -46,7 +44,7 @@ class Game {
         board[cell/3][cell%3] = activePlayer.mark
         gameHaveAWinner()
         guard winner == nil else {
-            errorHandler?("Winner is \(formattedWinner ?? "") !", true)
+            errorHandler?("Winner is Player \(winner?.order.rawValue ?? "Error")", true)
             return }
         guard tour < 8 else {
             errorHandler?("Tie !", true)
