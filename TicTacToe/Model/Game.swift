@@ -8,51 +8,45 @@
 
 import Foundation
 
-protocol GameProtocol: class {
-    func didUpdateBoard(with board: [[String]])
-    func didUpdateAlertMessage(with message: String, restart: Bool)
-}
 
 class Game {
 
     // MARK: - Properties
-
-    var delegate: GameProtocol?
     
     let players = [Player(.one), Player(.two)]
     var activePlayer: Player {
         tour % 2 == 0 ? players[0] : players[1]
     }
     var winner: Player?
-    var formattedWinner: String? {
-        winner?.order == .one ? "Player One" : "Player two"
-    }
+//    var formattedWinner: String? {
+//        winner?.order == .one ? "Player One" : "Player two"
+//    }
     var board: [[String]] =  [
         ["", "", ""],
         ["", "", ""],
         ["", "", ""],
-        ] {
-            didSet {
-                delegate?.didUpdateBoard(with: board)
-            }
+        ]{
+        didSet {
+            NotificationCenter.default.post(name: ViewController.updateBoardNotification, object: nil, userInfo: ["board": board])
         }
+    }
+
     var tour = 0
 
     // MARK: - Methods
 
     func play(at cell: Int) {
         guard board[cell/3][cell%3].isEmpty else {
-            delegate?.didUpdateAlertMessage(with: "Cette case est déjà prise, choisir une autre", restart: false)
+            NotificationCenter.default.post(name: ViewController.errorNotification, object: nil, userInfo: ["message": "Impossible de jouer ici, essayer encore !", "restart": false])
             return }
         board[cell/3][cell%3] = activePlayer.mark
 
         gameHaveAWinner()
         guard winner == nil else {
-            delegate?.didUpdateAlertMessage(with: "Winer is player \(formattedWinner ?? "ERREUR")", restart: true)
-//            restart()
+            NotificationCenter.default.post(name: ViewController.errorNotification, object: nil, userInfo: ["message": "Winner is Player \(winner?.order.rawValue ?? "Error") ", "restart": true])
             return }
         guard tour < 8 else {
-            delegate?.didUpdateAlertMessage(with: "Tie", restart: true)
+             NotificationCenter.default.post(name: ViewController.errorNotification, object: nil, userInfo: ["message": "Tie", "restart": true])
             return
         }
         tour += 1
