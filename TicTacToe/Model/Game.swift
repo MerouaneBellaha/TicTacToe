@@ -17,7 +17,7 @@ class Game {
 
     // MARK: - Properties
 
-    var delegate: GameProtocol?
+    weak var delegate: GameProtocol?
     
     let players = [Player(.one), Player(.two)]
     var activePlayer: Player {

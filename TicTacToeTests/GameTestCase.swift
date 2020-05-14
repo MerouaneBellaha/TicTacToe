@@ -58,15 +58,15 @@ class TicTacToeTests: XCTestCase {
         XCTAssertEqual(game.tour, 1)
     }
 
-    func testGivenGameTourIs8_WhenAddindAMark_ThenGameTourIs0AndBoardIsEmpty() {
-        addMarkFor(p1: [0, 1, 2, 3], p2: [4, 5, 6, 7])
-
-        addMarkFor(p1: [8])
-
-        XCTAssertEqual(game.tour, 0)
-        XCTAssertTrue(isEmpty)
-
-    }
+//    func testGivenGameTourIs8_WhenAddindAMark_ThenGameTourIs0AndBoardIsEmpty() {
+//        addMarkFor(p1: [0, 1, 2, 3], p2: [4, 5, 6, 7])
+//
+//        addMarkFor(p1: [8])
+//
+//        XCTAssertEqual(game.tour, 0)
+//        XCTAssertTrue(isEmpty)
+//
+//    }
 
     func testGivenPlayer1PlayAt5AndPlayer2PlayAt6_WhenPlayerOnePlayAt4_ThenIndexX1Y1IsACrossAndIndexX1Y2IsACircle() {
         addMarkFor(p1: [5], p2: [6])
