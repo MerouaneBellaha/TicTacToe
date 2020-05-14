@@ -16,12 +16,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        game.errorHandler = { message, restart in
-            self.udpateError(with: message, restart: restart)
-        }
-        game.updateBoardHandler = { board in
-            self.updateCells(with: board)
-        }
+        game.errorHandler = updateError
+        game.updateBoardHandler = updateCells
     }
     
     @IBAction func cellTapped(_ sender: UIButton) {
@@ -38,7 +34,7 @@ class ViewController: UIViewController {
         }
     }
     
-    func udpateError(with message: String, restart: Bool) {
+    func updateError(with message: String, restart: Bool) {
         let alertVc = UIAlertController(title: nil, message: message, preferredStyle: .alert)
         alertVc.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { _ in
             if restart {

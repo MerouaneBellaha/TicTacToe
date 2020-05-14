@@ -30,7 +30,7 @@ class Game {
     }
     var tour = 0
 
-    // MARK: - Completion Handler Pattern
+    // MARK: - Variable Réactive 
 
     var errorHandler: ((String, Bool) -> Void)?
     var updateBoardHandler: (([[String]]) -> Void)?
