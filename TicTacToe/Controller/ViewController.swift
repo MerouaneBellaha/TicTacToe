@@ -12,15 +12,12 @@ final class ViewController: UIViewController {
 
     private var game = Game()
 
-    static let errorNotification = Notification.Name("error")
-    static let updateBoardNotification = Notification.Name("updateBoard")
-
     @IBOutlet var cells: [UIButton]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(updateAlertMessage(notification:)), name: ViewController.errorNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(updateBoard(notification:)), name: ViewController.updateBoardNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateAlertMessage(notification:)), name: .errorNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateBoard(notification:)), name: .updateBoardNotification, object: nil)
 
     }
 
@@ -50,13 +47,13 @@ final class ViewController: UIViewController {
             let restart = notification.userInfo?["restart"] as? Bool
             else { return }
         let alertVc = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-            alertVc.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { _ in
-                if restart {
-                    self.game.restart()
-                }
-            }))
-            present(alertVc, animated: true)
-        }
+        alertVc.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { _ in
+            if restart {
+                self.game.restart()
+            }
+        }))
+        present(alertVc, animated: true)
+    }
 
 }
 
@@ -65,3 +62,8 @@ final class ViewController: UIViewController {
 
 // stop observing all notification
 //NotificationCenter.default.removeObserver(self)
+
+extension Notification.Name {
+    static let errorNotification = Notification.Name("error")
+    static let updateBoardNotification = Notification.Name("updateBoard")
+}

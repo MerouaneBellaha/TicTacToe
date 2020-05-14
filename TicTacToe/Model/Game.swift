@@ -27,7 +27,7 @@ class Game {
         ["", "", ""],
         ]{
         didSet {
-            NotificationCenter.default.post(name: ViewController.updateBoardNotification, object: nil, userInfo: ["board": board])
+            NotificationCenter.default.post(name: .updateBoardNotification, object: nil, userInfo: ["board": board])
         }
     }
 
@@ -37,16 +37,16 @@ class Game {
 
     func play(at cell: Int) {
         guard board[cell/3][cell%3].isEmpty else {
-            NotificationCenter.default.post(name: ViewController.errorNotification, object: nil, userInfo: ["message": "Impossible de jouer ici, essayer encore !", "restart": false])
+            NotificationCenter.default.post(name: .errorNotification, object: nil, userInfo: ["message": "Impossible de jouer ici, essayer encore !", "restart": false])
             return }
         board[cell/3][cell%3] = activePlayer.mark
 
         gameHaveAWinner()
         guard winner == nil else {
-            NotificationCenter.default.post(name: ViewController.errorNotification, object: nil, userInfo: ["message": "Winner is Player \(winner?.order.rawValue ?? "Error") ", "restart": true])
+            NotificationCenter.default.post(name: .errorNotification, object: nil, userInfo: ["message": "Winner is Player \(winner?.order.rawValue ?? "Error") ", "restart": true])
             return }
         guard tour < 8 else {
-             NotificationCenter.default.post(name: ViewController.errorNotification, object: nil, userInfo: ["message": "Tie", "restart": true])
+             NotificationCenter.default.post(name: .errorNotification, object: nil, userInfo: ["message": "Tie", "restart": true])
             return
         }
         tour += 1
