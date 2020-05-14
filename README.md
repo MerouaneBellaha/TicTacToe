@@ -1,6 +1,7 @@
 # TicTacToe
-TicTacToe from scratch to train TDD and few Communication patterns
+TicTacToe from scratch to train TDD and Communication patterns
 
-master is Protocol Delegate Pattern : statut -> OK.   
-Completion Handler branch is Completion Handler Pattern ( you don't say ): statut -> Works but muts be improved.   
-Notification branch is Notification Pattern ... : statut -> Not started. 
+Master is Protocol Delegate Pattern
+CompletionHandlerPattern branch is Completion Handler Pattern
+NotificationPattern branch is Notification Pattern
+
