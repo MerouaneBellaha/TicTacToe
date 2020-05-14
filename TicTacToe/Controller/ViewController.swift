@@ -63,7 +63,3 @@ final class ViewController: UIViewController {
 // stop observing all notification
 //NotificationCenter.default.removeObserver(self)
 
-extension Notification.Name {
-    static let errorNotification = Notification.Name("error")
-    static let updateBoardNotification = Notification.Name("updateBoard")
-}

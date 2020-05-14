@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CB27D9B8246D84EF00F13504 /* UIViewController+Nofitications.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB27D9B7246D84EF00F13504 /* UIViewController+Nofitications.swift */; };
 		CBAE89D52466F8220021B1F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAE89D42466F8220021B1F9 /* AppDelegate.swift */; };
 		CBAE89D72466F8220021B1F9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAE89D62466F8220021B1F9 /* SceneDelegate.swift */; };
 		CBAE89D92466F8220021B1F9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAE89D82466F8220021B1F9 /* ViewController.swift */; };
@@ -30,6 +31,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CB27D9B7246D84EF00F13504 /* UIViewController+Nofitications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Nofitications.swift"; sourceTree = "<group>"; };
 		CBAE89D12466F8220021B1F9 /* TicTacToe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TicTacToe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBAE89D42466F8220021B1F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CBAE89D62466F8220021B1F9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				CBAE89D82466F8220021B1F9 /* ViewController.swift */,
+				CB27D9B7246D84EF00F13504 /* UIViewController+Nofitications.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -242,6 +245,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CBAE89D92466F8220021B1F9 /* ViewController.swift in Sources */,
+				CB27D9B8246D84EF00F13504 /* UIViewController+Nofitications.swift in Sources */,
 				CBAE89D52466F8220021B1F9 /* AppDelegate.swift in Sources */,
 				CBAE89D72466F8220021B1F9 /* SceneDelegate.swift in Sources */,
 				CBAE89FD246705520021B1F9 /* Player.swift in Sources */,
